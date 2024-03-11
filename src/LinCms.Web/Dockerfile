@@ -8,15 +8,15 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Directory.Build.props", "."]
-COPY ["src/LinCms.Web/LinCms.Web.csproj", "src/LinCms.Web/"]
-COPY ["src/LinCms.Application.Contracts/LinCms.Application.Contracts.csproj", "src/LinCms.Application.Contracts/"]
-COPY ["src/LinCms.Core/LinCms.Core.csproj", "src/LinCms.Core/"]
-COPY ["src/LinCms.Application/LinCms.Application.csproj", "src/LinCms.Application/"]
-COPY ["src/LinCms.Infrastructure/LinCms.Infrastructure.csproj", "src/LinCms.Infrastructure/"]
+#COPY ["src/LinCms.Web/LinCms.Web.csproj", "src/LinCms.Web/"]
+#COPY ["src/LinCms.Application.Contracts/LinCms.Application.Contracts.csproj", "src/LinCms.Application.Contracts/"]
+#COPY ["src/LinCms.Core/LinCms.Core.csproj", "src/LinCms.Core/"]
+#COPY ["src/LinCms.Application/LinCms.Application.csproj", "src/LinCms.Application/"]
+#COPY ["src/LinCms.Infrastructure/LinCms.Infrastructure.csproj", "src/LinCms.Infrastructure/"]
 #COPY ["src/LinCms.Plugins/LinCms.Plugins.csproj", "src/LinCms.Plugins/"]
-RUN dotnet restore "/src/LinCms.Web/LinCms.Web.csproj"
+RUN dotnet restore "./src/LinCms.Web/LinCms.Web.csproj"
 COPY . .
-WORKDIR "/src/src/LinCms.Web"
+WORKDIR "./src/src/LinCms.Web"
 RUN dotnet build "/LinCms.Web.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 
