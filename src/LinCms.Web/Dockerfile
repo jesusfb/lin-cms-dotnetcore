@@ -7,7 +7,7 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Directory.Build.props", "."]
+#COPY ["Directory.Build.props", "."]
 #COPY ["src/LinCms.Web/LinCms.Web.csproj", "src/LinCms.Web/"]
 #COPY ["src/LinCms.Application.Contracts/LinCms.Application.Contracts.csproj", "src/LinCms.Application.Contracts/"]
 #COPY ["src/LinCms.Core/LinCms.Core.csproj", "src/LinCms.Core/"]
